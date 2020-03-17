@@ -7,7 +7,7 @@ import java.io.IOException;
 /*
     ReaderThread
     @author: Vitor Camargo
-    @description: Project to use threads to put in sleep for a random seconds
+    @description: Project to use a thread to read phrases from a file.
 */
 
 public class ReaderThread extends Thread {
@@ -16,22 +16,22 @@ public class ReaderThread extends Thread {
         while(true) {
             Thread.currentThread();
             try {
-                final File file = new File("./file-example.txt");
-                final BufferedReader br = new BufferedReader(new FileReader(file));
+                File file = new File("./file-example.txt");
+                BufferedReader buffer = new BufferedReader(new FileReader(file));
                 String string;
 
-                System.out.println("Vou esperar aqui por 10 segundos");
-                Thread.sleep(10 * 1000);
-
-                while ((string = br.readLine()) != null) {
+                while ((string = buffer.readLine()) != null) {
                     System.out.println(string);
                 }
 
-                br.close();
-            } catch (final FileNotFoundException e) {
+                buffer.close();
+
+                System.out.println("Vou esperar aqui por 10 segundos");
+                Thread.sleep(10 * 1000);
+            } catch (FileNotFoundException e) {
                 e.printStackTrace();
                 break;
-            } catch (final InterruptedException e) {
+            } catch (InterruptedException e) {
                 e.printStackTrace();
                 break;
             } catch (IOException e) {

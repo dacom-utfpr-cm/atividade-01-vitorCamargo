@@ -11,7 +11,11 @@ public class SleepThread extends Thread {
 
     @Override
     public void run() {
-        int rand = random.nextInt(10);
+        int rand = 0;
+        while (rand == 0) {
+            rand = random.nextInt(10);
+        }
+
         Thread.currentThread();
         try {
             System.out.println("Vou parar aqui por " + rand + " segundos");
