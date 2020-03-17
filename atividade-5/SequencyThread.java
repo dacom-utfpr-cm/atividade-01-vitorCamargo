@@ -4,7 +4,7 @@ import java.util.Scanner;
 /*
     SequencyThread
     @author: Vitor Camargo
-    @description: Project to use a thread to read phrases from a file.
+    @description: Project to use a thread to sum values.
 */
 
 public class SequencyThread extends Thread {
